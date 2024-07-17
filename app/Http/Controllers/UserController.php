@@ -14,7 +14,7 @@ class UserController extends Controller
     public function index()
     {
         //get all users with their contacts(One to One Relationship) && Joining the two tables
-        $users = User::with('contact')->get();
+        // $users = User::with('contact')->get();
 
         //specific data with user id from the users table
         // $user = User::with('contact')->find('9c850835-9fe0-4457-9211-2c02681b408c');
@@ -32,8 +32,15 @@ class UserController extends Controller
         //     $query->where('city', 'Bashirianbury');
         // })->get();
 
+        //many to many relationship
+        // $users = User::find('9c8af98b-13b3-4788-82a6-80fecde699a9');
 
-        return $users;
+
+        //has one through relationship'
+
+        // $users = User::with('userPhone')->get();
+
+        // return $users;
     }
 
     /**

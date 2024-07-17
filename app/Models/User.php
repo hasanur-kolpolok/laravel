@@ -22,7 +22,24 @@ class User extends Model
         'password',
     ];
 
+    //one to one relationship
     public function contact(){
         return $this->hasOne(Contacts::class);
+    }
+
+    //one to many
+    public function book(){
+        return $this->hasMany(Book::class);
+    }
+
+    //many to many
+    public function roles(){
+        return $this->belongsToMany(Role::class,'user_role');
+    }
+
+    //has one through relationship
+
+    public function userPhone(){
+        return $this->hasOneThrough(PhoneNumber::class, Company::class);
     }
 }
